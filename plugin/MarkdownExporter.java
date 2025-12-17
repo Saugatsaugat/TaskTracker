@@ -24,7 +24,7 @@ public class MarkdownExporter implements ITaskExporter {
 
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(fileLocation, true))) {
             for (Task task : dataList) {
-                String data = "| " + task.getName() + " | " + task.getDueDate().toString() + " | "
+                String data = "| " + task.getName() + " | " + task.getTag() +" | " + task.getDueDate().toString() + " | "
                         + task.getPriority().getValue()
                         + " | " + task.getNote() + " |";
                 bw.newLine();
