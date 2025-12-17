@@ -29,7 +29,8 @@ public class TaskService {
             line = br.readLine();
             while ((line = br.readLine()) != null) {
                 String[] values = line.split(",");
-                Task task = new Task(values[0], values[1], LocalDate.parse(values[2]), TaskPriority.valueOf(values[3]), values[4]);
+                Task task = new Task(values[0], values[1], LocalDate.parse(values[2]), TaskPriority.valueOf(values[3]),
+                        values[4]);
                 tasks.add(task);
             }
         } catch (Exception e) {
@@ -38,18 +39,33 @@ public class TaskService {
         return tasks;
     }
 
-
     /*
      * This method will write the content to csv file.
      */
     public void writeToFile(Task task) {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(fileLocation, true))) {
-            String data = task.getName() + "," + task.getDueDate().toString() + "," + task.getPriority().getValue() + ","+ task.getNote();
+            String data = task.getName() + "," + task.getDueDate().toString() + "," + task.getPriority().getValue()
+                    + "," + task.getNote();
             bw.newLine();
             bw.write(data);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
+    /*
+    This method will create the new task in the CSV file and on success returns true; else false.
+    */
+    public boolean createTask(Task task) {
+        try {
+            writeToFile(task);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
     
+
 }
