@@ -40,7 +40,7 @@ public class MarkdownExporter implements ITaskExporter {
         try {
             File f = new File(fileLocation);
             if (f.createNewFile()) {
-                String columns = "| Name | Tag | Due Date | Priority | Note |\n| :---------- | :---------: | :---------: | :--------: | -----------:";
+                String columns = "| Name | Tag | Due Date | Priority | Note |\n| :---------- | :---------: | :---------: | :--------: | :-----------";
                 FileWriter fw = new FileWriter(fileLocation);
                 fw.write(columns);
                 fw.close();
