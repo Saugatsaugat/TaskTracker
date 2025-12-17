@@ -5,23 +5,24 @@ import java.util.List;
 
 import enums.TaskPriority;
 import interfaces.IFilterSortSearch;
+import model.Task;
 
-public class SearchService<T> implements IFilterSortSearch<T> {
+public class SearchService<T> implements IFilterSortSearch {
 
     @Override
-    public List<T> byTag(String tag) {
+    public List<Task> byTag(String tag) {
 
         return null;
     }
 
     @Override
-    public List<T> byDueDate(LocalDate dueDate) {
+    public List<Task> byDueDate(LocalDate dueDate) {
 
         return null;
     }
 
     @Override
-    public List<T> byPriority(TaskPriority priority) {
+    public List<Task> byPriority(TaskPriority priority) {
 
         return null;
     }
