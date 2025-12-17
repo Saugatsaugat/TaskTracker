@@ -34,10 +34,10 @@ public class Task {
         this.tag = tag;
     }
 
-    public LocalDate getLocalDate(){
+    public LocalDate getDueDate(){
         return this.dueDate;
     }
-    public void setLocalDate(LocalDate dueDate){
+    public void setDueDate(LocalDate dueDate){
         this.dueDate = dueDate;
     }
 
