@@ -9,7 +9,7 @@ import enums.TaskPriority;
 import interfaces.IFilterSortSearch;
 import model.Task;
 
-public class SearchService<T> implements IFilterSortSearch {
+public class SearchService implements IFilterSortSearch {
 
     TaskService taskService = new TaskService();
 
