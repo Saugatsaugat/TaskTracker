@@ -1,6 +1,7 @@
 package plugin;
 
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.util.List;
 
@@ -27,6 +28,7 @@ public class CSVExporter implements ITaskExporter {
             bw.newLine();
             bw.write(data);
             }            
+            System.out.println(filename+".csv written successfully!!!");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -34,9 +36,15 @@ public class CSVExporter implements ITaskExporter {
 
     public static void writeColumnToFile(String fileLocation){
         try {
+            File f = new File(fileLocation);
+            if(f.createNewFile()){
             String columns = "Name,Tag,Due Date,Priority,Note";
             FileWriter fw = new FileWriter(fileLocation);
             fw.write(columns);
+            fw.close();
+            }else{
+                System.out.println("File already exists");
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
